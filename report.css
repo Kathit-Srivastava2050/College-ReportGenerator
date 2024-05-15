@@ -1,0 +1,195 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    align-items: center;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #000000;
+    text-align: left;
+    width: 250px;
+    font-weight: normal;
+}
+
+
+.data {
+    font-weight: bold;
+}
+
+.header {
+    text-align: center;
+}
+
+.school {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.university-name {
+    text-align: center;
+    font-size: 17px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.table {
+    top: 10px;
+    margin-top: 50px;
+}
+
+.section {
+    page-break-after: always;
+    break-after: page;
+
+}
+.descreportsection{
+    text-align: center;
+}
+.actTitle {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.descReport {
+    font-size: 19px;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.desc {
+    font-size: 15px;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+.geoTag1,
+.geoTag2 {
+    width: 70%;
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    object-fit: cover;
+}
+
+.attSheet1,
+.attSheet2,
+.attSheet3,
+.attSheet4,
+.attSheet5,
+.attSheet6,
+.attSheet7,
+.attSheet8,
+.attSheet9,
+.attSheet10 {
+    width: 90%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    object-fit: cover;
+}
+
+.poster {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    object-fit: cover;
+}
+
+.feedReport1,
+.feedReport2,
+.feedReport3,
+.feedReport4,
+.feedReport5,
+.feedReport6,
+.feedReport7 {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    object-fit: cover;
+}
+
+.actTaken {
+    text-align: left;
+    font-weight: bold;
+
+}
+
+.actTakenDesc {
+    text-align: left;
+}
+
+.ac-hod {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.ac-title {
+    text-align: center;
+}
+
+.ac-sign {
+    text-align: center;
+}
+
+.hod-title {
+    text-align: center;
+}
+
+.hod-sign {
+    text-align: center;
+}
+
+.ac-hod-main {
+    margin-top: 300px
+
+}
+.ac-hod-main img{
+    height: 100px;
+    width: 100px;
+}
+.speakProfile {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border: gray solid 4px;
+    margin-top: 50px;
+    object-fit: cover;
+}
+.image-fitter1{
+margin-left: 40%;
+}
+.image-fitter2{
+margin-left: 40%;
+}
