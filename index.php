@@ -18,12 +18,12 @@ ob_start();
         <div class="sidebar" id="sidebar">
             <div id="sidebarTop">
                 <header>Options</header>
-                <i class="bi bi-list" id="sidebaropen"></i>
+                <img src="images/MenuIcon.png" id="sidebaropen"></img>
 
             </div>
             <ul>
-                <li><span><i class="bi bi-person-fill"></i>DashBoard</span></li>
-                <li><span id="ChangeTheme"><i class="bi bi-palette-fill"></i>Change Theme</span>
+                <li><span><img src="images/Profile.png" alt=""> DashBoard</span></li>
+                <li><span id="ChangeTheme"><img src="images/Pallete.png" alt=""></i>Change Theme</span>
                     <div id="ThemesList">
                         <h5>Original Theme </h5>
                         <span>
@@ -45,8 +45,8 @@ ob_start();
 
                     </div>
                 </li>
-                <li><span><i class="bi bi-clock-fill"></i><a href='history.php'>History</a></span></li>
-                <li><span><i class="bi bi-key-fill"></i><a href="changePassword.php">Change Password</a></span></li>
+                <li><span><img src="images/Clock.png" alt=""> <a href='history.php'>History</a></span></li>
+                <li><span><img src="images/lock.png" alt=""><a href="changePassword.php">Change Password</a></span></li>
             </ul>
         </div>
         <div class="left-header"><img src="logochrist.jpg" class="logo" id="open"></div>

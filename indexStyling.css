@@ -75,6 +75,7 @@ body {
     line-height: 70px;
     background-color: #063146;
     user-select: none;
+    font-weight: 500;
 }
 
 #sidebarTop header{
@@ -123,11 +124,14 @@ body {
     outline: 0.5px groove white;
 }
 
-.sidebar ul i {
-    margin-right: 16px;
+.sidebar img {
+    width: 2vw;
+    padding-right: 2vh;
 }
 
-
+.sidebar span{
+    font-weight: 500;
+}
 
 #open{
     cursor: pointer;
@@ -139,11 +143,11 @@ body {
     background: transparent;
     color: white;
     margin-left: 10vw;
+    margin-top: 0.5vh;
     padding: 0.7vh 8vh;
-    /* padding: 4px 12px; */
     font-size: 35px;
-    width: 100%;
-    top: 0;
+    width: 2vw;
+    height: 5vh;
 
 }
 
