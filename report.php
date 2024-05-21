@@ -171,11 +171,12 @@ if(mysqli_num_rows($result)>0){
           <th class="data" name="rapporteurName"><?php echo $row['actRapporteurName']?></th>
         </tr>
         <tr>
-          <td>Email and Contact No.</td>
+          <td>Email</td>
           <td class="data" name="rapporteurContact"><?php echo $row['actRapporteurEmail'];
-          echo ", ";
-          echo "+91";
-           echo $row['actRapporteurContact']?></td>
+          // echo ", ";
+          // echo "+91";
+          //  echo $row['actRapporteurContact']
+          ?></td>
         </tr>
       </table>
     </div>

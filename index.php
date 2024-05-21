@@ -63,8 +63,8 @@ ob_start();
                 <h1>General Information</h1>
                 <label for="actType">Type of Activity:</label>
                 <span id="EventOptionsContainer">
-                    <select name="actType" id="actType">
-                        <option value=""></option>
+                    <select name="actType" id="actType" onblur="changeBackgroundColor('actType')">
+                        <option disabled selected>Select the Type of Activity</option>
                         <option value="Cultural Event">Cultural Event</option>
                         <option value="Guest Talk">Guest Talk</option>
                         <option value="Sports Event">Sports Event</option>
