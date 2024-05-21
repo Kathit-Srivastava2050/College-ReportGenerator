@@ -62,13 +62,22 @@ ob_start();
             <div class="form_section">
                 <h1>General Information</h1>
                 <label for="actType">Type of Activity:</label>
-                <input type="text" name="actType" id="actType" class="actType" onblur="changeBackgroundColor('actType')" required /><br /><br />
+                <span id="EventOptionsContainer">
+                    <select name="actType" id="actType">
+                        <option value=""></option>
+                        <option value="Cultural Event">Cultural Event</option>
+                        <option value="Guest Talk">Guest Talk</option>
+                        <option value="Sports Event">Sports Event</option>
+                        <option value="Tech Event">Tech Event</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </span>
 
                 <label for="actTitle">Title of the Activity:</label>
                 <input type="text" name="actTitle" id="actTitle" class="actTitle" onblur="changeBackgroundColor('actTitle')" required /><br /><br />
 
                 <label for="actDate">Date of the Activity:</label>
-                <input type="text" name="actDate" id="actDate" class="actDate" onblur="changeBackgroundColor('actDate')" required /><br /><br />
+                <input type="date" name="actDate" id="actDate" class="actDate" onblur="changeBackgroundColor('actDate')" required /><br /><br />
 
                 <label for="actTimeStart">Start Time of the Activity (from):</label>
                 <input type="time" name="actTimeStart" id="actTimeStart" class="actTimeStart" onblur="changeBackgroundColor('actTimeStart')" required />
@@ -103,16 +112,16 @@ ob_start();
                 <label for="actParticipantsNo">Number of Participants:</label>
                 <input type="number" name="actParticipantsNo" id="actParticipantsNo" class="actParticipantsNo" onblur="changeBackgroundColor('actParticipantsNo')" required /><br /><br />
 
-                <label for="actTeacherParticipantsNo">Teacher:</label>
+                <label for="actTeacherParticipantsNo">Number Of Teachers:</label>
                 <input type="number" name="actTeacherParticipantsNo" id="actTeacherParticipantsNo" class="actTeacherParticipantsNo" onblur="changeBackgroundColor('actTeacherParticipantsNo')" oninput="calculateSum();" required /><br /><br />
                 <p id="error1" style="display: none">*The Amount of Teachers cannot be more than the amount of Total Participants*</p>
-                <label for="actStudentParticipantsNo">Student:</label>
+                <label for="actStudentParticipantsNo">Number Of Students:</label>
                 <input type="number" name="actStudentParticipantsNo" id="actStudentParticipantsNo" class="actStudentParticipantsNo" onblur="changeBackgroundColor('actStudentParticipantsNo')" required readonly value="0" /><br /><br />
 
-                <label for="actMaleParticipantsNo">Male:</label>
+                <label for="actMaleParticipantsNo">Male Students:</label>
                 <input type="number" name="actMaleParticipantsNo" id="actMaleParticipantsNo" class="actMaleParticipantsNo" onblur="changeBackgroundColor('actMaleParticipantsNo')" oninput="calculateGender();" required /><br /><br />
                 <p id="error2" style="display: none">*The Amount of Male Students cannot be more than the amount of Total Students*</p>
-                <label for="actFemaleParticipantsNo">Female:</label>
+                <label for="actFemaleParticipantsNo">Female Students:</label>
                 <input type="number" name="actFemaleParticipantsNo" id="actFemaleParticipantsNo" class="actFemaleParticipantsNo" onblur="changeBackgroundColor('actFemaleParticipantsNo')" required readonly value="0" /><br /><br />
             </div>
 
@@ -141,8 +150,8 @@ ob_start();
                 <label for="actRapporteurEmail">Rapporteur Email:</label>
                 <input type="email" name="actRapporteurEmail" id="actRapporteurEmail" class="actRapporteurEmail" onblur="changeBackgroundColor('actRapporteurEmail')" required /><br /><br />
 
-                <label for="actRapporteurContact">Rapporteur Phone No.:</label>
-                <input type="number" name="actRapporteurContact" id="actRapporteurContact" class="actRapporteurContact" onblur="changeBackgroundColor('actRapporteurContact')" required /><br /><br />
+                <!-- <label for="actRapporteurContact">Rapporteur Phone No.:</label>
+                <input type="number" name="actRapporteurContact" id="actRapporteurContact" class="actRapporteurContact" onblur="changeBackgroundColor('actRapporteurContact')" required /><br /><br /> -->
             </div>
 
 
@@ -241,6 +250,7 @@ ob_start();
                 presentation.type = 'text';
                 presentation.name = 'actSpeakerPresentationTitle';
                 presentation.id = "presentation";
+                presentation.required = true;
                 presentation.addEventListener('blur', function() {
                     changeBackgroundColor('presentation');
                 });
@@ -351,16 +361,16 @@ ob_start();
             }
 
         }
-        document.getElementById("actRapporteurContact").addEventListener("keydown", function(event) {
+        // document.getElementById("actRapporteurContact").addEventListener("keydown", function(event) {
 
-            if (event.keyCode === 38 || event.keyCode === 40) {
-                event.preventDefault();
-            }
-            var value = event.target.value;
+        //     if (event.keyCode === 38 || event.keyCode === 40) {
+        //         event.preventDefault();
+        //     }
+        //     var value = event.target.value;
 
-            value = value.replace(/[^\d]/g, '');
-            event.target.value = value;
-        });
+        //     value = value.replace(/[^\d]/g, '');
+        //     event.target.value = value;
+        // });
 
         function changeBackgroundColor(inputId) {
             var inputField = document.getElementById(inputId);
@@ -508,6 +518,31 @@ ob_start();
         dark.addEventListener("change", changeTheme);
         original.addEventListener("change", changeTheme);
         light.addEventListener("change", changeTheme);
+       
+        function handleActTypeChange() {
+        var selectElement = document.getElementById("actType");
+        var selectedOption = selectElement.options[selectElement.selectedIndex].value;
+        var eventOptionsContainer = document.getElementById("EventOptionsContainer");
+
+        if (selectedOption === "Other") {
+            // Remove the select element
+            eventOptionsContainer.removeChild(selectElement);
+
+            // Create a new input field
+            var inputField = document.createElement("input");
+            inputField.setAttribute("type", "text");
+            inputField.setAttribute("name", "actType");
+            inputField.setAttribute("id", "actType");
+            inputField.setAttribute("placeholder", "Enter Other Type");
+
+            // Append the input field
+            eventOptionsContainer.appendChild(inputField);
+        }
+    }
+
+    // Attach the event listener to the select element
+    document.getElementById("actType").addEventListener("change", handleActTypeChange);
+
     </script>
 
     <?php
@@ -585,7 +620,7 @@ ob_start();
 
             $actRapporteurName = sanitizeInput($_POST["actRapporteurName"]);
             $actRapporteurEmail = sanitizeInput($_POST["actRapporteurEmail"]);
-            $actRapporteurContact = sanitizeInput($_POST["actRapporteurContact"]);
+            // $actRapporteurContact = sanitizeInput($_POST["actRapporteurContact"]);
             $actSpeakerPresentationTitle = sanitizeInput($_POST['actSpeakerPresentationTitle']);
             $actDescReport = sanitizeInput($_POST["actDescReport"]);
             $sql = "SELECT * FROM testdata;";
@@ -600,12 +635,12 @@ ob_start();
             (actType, actTitle, actDate, actTimeStart, actTimeEnd, actVenue, actSponsor, 
              actParticipantsType, actParticipantsNo, actTeacherParticipantsNo, actStudentParticipantsNo, 
              actMaleParticipantsNo, actFemaleParticipantsNo, actHighlights, actKeyTakeaways, actSummary, 
-             actPlan, actRapporteurName, actRapporteurEmail, actRapporteurContact, actDescReport, actSpeakerPresentationTitle)
+             actPlan, actRapporteurName, actRapporteurEmail, actDescReport, actSpeakerPresentationTitle)
             VALUES 
             ('$actType', '$actTitle', '$actDate', '$actTimeStart', '$actTimeEnd', '$actVenue', '$actSponsor', 
              '$actParticipantsType', '$actParticipantsNo', '$actTeacherParticipantsNo', '$actStudentParticipantsNo', 
              '$actMaleParticipantsNo', '$actFemaleParticipantsNo', '$actHighlights', '$actKeyTakeaways', '$actSummary', 
-             '$actPlan', '$actRapporteurName', '$actRapporteurEmail', '$actRapporteurContact', '$actDescReport','$actSpeakerPresentationTitle');";
+             '$actPlan', '$actRapporteurName', '$actRapporteurEmail', '$actDescReport','$actSpeakerPresentationTitle');";
             for ($i = 1; $i <= $globalspeaker; $i++) {
                 $filename = $_FILES["numspeaker$i"]['name'];
                 $tempname = $_FILES["numspeaker$i"]['tmp_name'];
