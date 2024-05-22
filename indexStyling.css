@@ -182,24 +182,38 @@ body {
     line-height: 10px;
 }
 
-.footer{
-    display:flex;
+.footer {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    color: white;
     height: 20vh;
     width: 100vw;
     background-color: rgb(23, 57, 85);
 }
 
-#Credits{
-    text-indent: 25%;
+#CreditsBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     line-height: 1.5;
-    height:98%;
-    width:30%;
+    height: 100%; 
+    width: 35%;
 }
-#CreditsHeading{
-    text-indent: 40%;
-    line-height: 0.75;
+
+#CreditsHeading {
+    text-indent: 10%; 
+    line-height: 0.75; 
 }
+
+.Credits {
+    width: 50%;
+    margin: 0; 
+    /* color: transparent; */
+    text-shadow: 0 0 5px rgba(192,192,192,0.5), 0 0 10px rgba(192,192,192,0.4), 0 0 15px rgba(192,192,192,0.3); 
+}
+
+
 .logo {
     height: 85%;
     width: 60%;
@@ -249,12 +263,25 @@ input[type=file] {
     border-radius: 5px;
 }
 
+select{
+    border-radius: 5px;
+    background-color: white;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: grey;
+}
+
 input:focus {
     border: 10px;
     border-radius: 5px;
     background-color: lightpink;
 }
 
+select:focus {
+    border: 10px;
+    border-radius: 5px;
+    background-color: lightpink;
+}
 textarea:focus {
     border: 10px;
     border-radius: 5px;
@@ -407,7 +434,7 @@ input:checked + .toggleButton::before{
 
 .dark-theme input, .dark-theme textarea {
     background-color: #444444;
-    color: thistle;
+    color: black;
 }
 
 .dark-theme button {
@@ -437,7 +464,17 @@ input:checked + .toggleButton::before{
 .dark-theme textarea:focus {
     border: 10px;
     border-radius: 5px;
-    background-color: rgb(216, 246, 216);
+    background-color: rgb(145, 82, 145);
+    
+}
+
+.dark-theme select{
+    background-color: #444444;
+}
+.dark-theme select:focus , option:focus {
+    border: 10px;
+    border-radius: 5px;
+    background-color: rgb(145, 82, 145);
 }
 
 .light-theme body {

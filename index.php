@@ -64,7 +64,7 @@ ob_start();
                 <label for="actType">Type of Activity:</label>
                 <span id="EventOptionsContainer">
                     <select name="actType" id="actType" onblur="changeBackgroundColor('actType')">
-                        <option disabled selected>Select the Type of Activity</option>
+                        <option disabled selected></option>
                         <option value="Cultural Event">Cultural Event</option>
                         <option value="Guest Talk">Guest Talk</option>
                         <option value="Sports Event">Sports Event</option>
@@ -213,20 +213,16 @@ ob_start();
         </div>
 
         <div class="footer" id="footer">
-            <div id="Credits">
-                <h3 id="CreditsHeading">Made By: </h3>
-                <ul>
-                    <li>Kathit Srivastava 2BCA-B</li>
-                    <li>KR Varun 2BCA-B</li>
-                    <li>Aditya Sebastian 4BCA-A</li>
-                    <li>Anmol Garg 4BCA-A</li>
-                </ul>
+            <div id="CreditsBox">
+                <h3 class="Credits">Developed By: </h3>
+                <h4 class="Credits">Kathit Srivastava BCA</h4>
+                <h4 class="Credits">KR Varun BCA</h4>
             </div>
         </div>
         </div>
     </form>
     <script>
-        var loop_check = true;
+        var loop_check = true;  
         var flag1 = true;
         var flag2 = true;
 
