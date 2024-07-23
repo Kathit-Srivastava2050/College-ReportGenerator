@@ -21,7 +21,6 @@
 	<div class="screen">
 		<div class="screen__content">
 			<form class="login"  method="POST">
-                <img src="Images/Book.jpg" alt="" id="Book">
 				<div class="login__field">
 
 					<input type="text" class="login__input" placeholder="UserId" name="userId">
@@ -70,7 +69,9 @@
                     $storingid=$row['userId'];
                     $_SESSION['user_id'] = $storingid;
                     $_SESSION['user_name']= $storingname;
+                    $_SESSION['user_pass']=$password;
                     $_SESSION['activity']=time();
+                    $_SESSION['timestamp']=new DateTime();
                     header("location: index.php");
                 } else {
                     echo "Invalid username or password.";
