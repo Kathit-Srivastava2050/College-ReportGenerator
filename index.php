@@ -13,7 +13,8 @@ ob_start();
 
 </head>
 
-<body>
+<body onload="attachEventScroll();">
+<div id="end-point"></div>
     <div class="header">
         <div class="sidebar" id="sidebar">
             <div id="sidebarTop">
@@ -22,7 +23,7 @@ ob_start();
 
             </div>
             <ul>
-                <li><span><img src="images/Profile.png" alt=""> DashBoard</span></li>
+                <li><span><img src="images/Profile.png" alt=""><a href='dashboard.php'>DashBoard</a> </span></li>
                 <li><span id="ChangeTheme"><img src="images/Pallete.png" alt=""></i>Change Theme</span>
                     <div id="ThemesList">
                         <h5>Original Theme </h5>
@@ -54,8 +55,11 @@ ob_start();
             <h1>Report Generator CHRIST (Deemed to be University) Delhi NCR</h1>
             <h2>School of Sciences</h2>
         </div>
-
+        
     </div>
+    <div class="scroll-progress-border">
+            <div class="scroll-progress-bar"></div>
+        </div>
     <form action="#" method="POST" enctype="multipart/form-data" onsubmit="return validateForm();">
         <div class="grid_container">
 
@@ -64,7 +68,7 @@ ob_start();
                 <label for="actType">Type of Activity:</label>
                 <span id="EventOptionsContainer">
                     <select name="actType" id="actType" onblur="changeBackgroundColor('actType')">
-                        <option disabled selected></option>
+                        <option disabled selected>Select the Type of Activity</option>
                         <option value="Cultural Event">Cultural Event</option>
                         <option value="Guest Talk">Guest Talk</option>
                         <option value="Sports Event">Sports Event</option>
@@ -211,18 +215,20 @@ ob_start();
             <input type="reset" value="Reset" />
 
         </div>
-
         <div class="footer" id="footer">
             <div id="CreditsBox">
                 <h3 class="Credits">Developed By: </h3>
-                <h4 class="Credits">Kathit Srivastava BCA</h4>
+                <h4 class="Credits">Kathit Srivastava BCA  </h4>
                 <h4 class="Credits">KR Varun BCA</h4>
             </div>
         </div>
+
+
         </div>
     </form>
+    
     <script>
-        var loop_check = true;  
+        var loop_check = true;
         var flag1 = true;
         var flag2 = true;
 
@@ -246,7 +252,7 @@ ob_start();
                 presentation.type = 'text';
                 presentation.name = 'actSpeakerPresentationTitle';
                 presentation.id = "presentation";
-                presentation.required = true;
+                presentation.required = "true";
                 presentation.addEventListener('blur', function() {
                     changeBackgroundColor('presentation');
                 });
@@ -538,7 +544,22 @@ ob_start();
 
     // Attach the event listener to the select element
     document.getElementById("actType").addEventListener("change", handleActTypeChange);
+    function scrollDocument(){
+       // console.log(window.innerHeight);
+      // console.log(Math.floor(window.scrollY));
+      var targetEl=document.getElementById("end-point");
+      var targetRect=targetEl.getBoundingClientRect();
+      var scrollHorizontal=document.getElementsByClassName("scroll-progress-bar")[0];
 
+      var Yposition=window.scrollY;
+      var totalHeight=(Math.floor(Yposition)/ (document.documentElement.scrollHeight-window.innerHeight))*100;
+      //var width=(Math.floor(window.innerHeight/totalHeight))*100;
+      scrollHorizontal.style.width=`${totalHeight}%`;
+      //console.log(Math.floor(Yposition));
+    }
+    function attachEventScroll(){
+        document.addEventListener("scroll", scrollDocument);
+    }
     </script>
 
     <?php
